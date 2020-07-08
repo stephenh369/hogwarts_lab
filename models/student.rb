@@ -22,10 +22,23 @@ class Student
         return data.map { |student| Student.new(student) }
     end
 
-    def self.find_all()
+    def self.all()
         sql = "SELECT * FROM students"
         result = SqlRunner.run(sql)
         return self.map_items(result)
+    end
+
+    def self.delete_all()
+        sql = "DELETE FROM students"
+        SqlRunner.run(sql)
+    end
+
+    def self.find(id)
+        sql = "SELECT * FROM students WHERE id = $1"
+        values = [@id]
+        student = SqlRunner.run(sql, values)
+        result = Student.new(student.first)
+        return result
     end
     
 end
