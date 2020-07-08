@@ -1,3 +1,4 @@
+
 <% @students.each do |student| %>
     <p>First Name: <%= student.first_name %></p>
     <p>Last Name: <%= student.last_name %></p>
@@ -6,3 +7,5 @@
     <a href="/students/<%= student.id %>">Details</a>
     <hr/>
 <% end %>
+
+<a href="/students/new">New Student</a>
