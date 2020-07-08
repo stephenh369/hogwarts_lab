@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require_relative('./models/student')
+require_relative('./models/house')
 also_reload('./models/*')
 
 get '/students' do
