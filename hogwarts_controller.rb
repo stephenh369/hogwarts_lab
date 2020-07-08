@@ -23,3 +23,9 @@ post '/students' do
     @student.save()
     redirect '/students'
 end
+
+post '/students/:id/delete' do
+    @student = Student.find(params[:id].to_i)
+    @student.delete()
+    redirect "/students"
+end

@@ -20,6 +20,12 @@ class Student
         @id = result[0]['id'].to_i
     end
 
+    def delete()
+        sql = "DELETE FROM students WHERE id = $1"
+        values = [@id]
+        SqlRunner.run(sql, values)
+    end
+
     def self.map_items(data)
         return data.map { |student| Student.new(student) }
     end
