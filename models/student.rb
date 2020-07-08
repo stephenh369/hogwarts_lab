@@ -48,5 +48,13 @@ class Student
         result = Student.new(student.first)
         return result
     end
+
+    def house()
+        sql = "SELECT * FROM houses WHERE id = $1"
+        values = [@house]
+        house = SqlRunner.run(sql, values)
+        result = House.new(house.first)
+        return result
+    end
     
 end

@@ -7,7 +7,6 @@ also_reload('./models/*')
 
 get '/students' do
     @students = Student.all()
-    @houses = House.all()
     erb(:index)
 end
 
