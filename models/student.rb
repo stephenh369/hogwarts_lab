@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Student
 
-    attr_reader :first_name, :last_name, :house, :age
+    attr_reader :first_name, :last_name, :house, :age, :id
 
     def initialize(options)
         @id = options['id'].to_i if options['id']
@@ -37,7 +37,7 @@ class Student
 
     def self.find(id)
         sql = "SELECT * FROM students WHERE id = $1"
-        values = [@id]
+        values = [id]
         student = SqlRunner.run(sql, values)
         result = Student.new(student.first)
         return result
