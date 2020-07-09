@@ -5,12 +5,11 @@
     <label for="last-name">Last Name:</label>
     <input id="last-name" type="text" name="last_name"/>
 
-    <label for="house">House:</label>
+    <label for="house-select">House:</label>
     <select id="house-select" name="house">
-        <option value="Gryffindor">Gryffindor</option>
-        <option value="Slytherin">Slytherin</option>
-        <option value="Hufflepuff">Hufflepuff</option>
-        <option value="Ravenclaw">Ravenclaw</option>
+        <% @houses.each do |house| %>
+            <option value=<%= house.id %>><%= house.name.capitalize %></option>
+        <% end %>
     </select>
 
     <label for ="age">Age:</label>
